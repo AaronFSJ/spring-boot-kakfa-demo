@@ -14,7 +14,7 @@ import java.util.concurrent.CountDownLatch;
 import java.util.concurrent.TimeUnit;
 
 @SpringBootApplication
-public class KafkaDemoApplication implements CommandLineRunner{
+public class KafkaDemoApplication/* implements CommandLineRunner*/{
 
 	public static Logger logger = LoggerFactory.getLogger(KafkaDemoApplication.class);
 
@@ -24,18 +24,18 @@ public class KafkaDemoApplication implements CommandLineRunner{
 
 	private final CountDownLatch latch = new CountDownLatch(3);
 
-	/*
-	 * @Author: Aaron
-	 * @Description:
-	 * @Date: 2017/12/26 14:46
-	 * @Param:
-	 */
-	@Override
-	public void run(String... args) throws Exception {
-		this.template.send("myTopic", "foo1");
-		latch.await(1, TimeUnit.SECONDS);
-		logger.info("All received");
-	}
+//	/*
+//	 * @Author: Aaron
+//	 * @Description:
+//	 * @Date: 2017/12/26 14:46
+//	 * @Param:
+//	 */
+//	@Override
+//	public void run(String... args) throws Exception {
+//		this.template.send("topicTest2", 2,"foo1");
+//		latch.await(1, TimeUnit.SECONDS);
+//		logger.info("All received");
+//	}
 
 
 
