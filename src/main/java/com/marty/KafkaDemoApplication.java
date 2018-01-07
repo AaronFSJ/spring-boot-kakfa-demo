@@ -19,10 +19,10 @@ public class KafkaDemoApplication/* implements CommandLineRunner*/{
 	public static Logger logger = LoggerFactory.getLogger(KafkaDemoApplication.class);
 
 
-	@Autowired
-	private KafkaTemplate<String, String> template;
-
-	private final CountDownLatch latch = new CountDownLatch(3);
+//	@Autowired
+//	private KafkaTemplate<String, String> template;
+//
+//	private final CountDownLatch latch = new CountDownLatch(3);
 
 //	/*
 //	 * @Author: Aaron
