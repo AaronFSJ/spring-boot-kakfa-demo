@@ -50,11 +50,19 @@ public class CollectController {
              * 所以如果想要分送到不同的分区上，可以自己实现Partitioner，也可以指定每条消息发送的key,key值要根据实际情况发生变化，虽然不是均发，
              * 但是至少能保证不是每个消息都发送到同一个分区上
              */
-            ProducerRecord<String,Object> pr = new ProducerRecord<String,Object>("replicated-topic","key1","topic test");
-            ListenableFuture<SendResult<String, String>> result = kafkaTemplate.send(pr);
-            Map map =checkProRecord(result);
+            Map map = null;
+            for(int i=0;i<3;i++){
+                logger.info("====="+i);
+                ProducerRecord<String,Object> pr = new ProducerRecord<String,Object>("mytest","key"+1,"topic test"+i);
+//                kafkaTemplate.send(pr);
 
-            logger.info("发送结果：code:{},message:{}",map.get("code"),map.get("message"));
+                ListenableFuture<SendResult<String, String>> result = kafkaTemplate.send(pr);
+                map =checkProRecord(result);
+
+                logger.info("发送结果：code:{},message:{}",map.get("code"),map.get("message"));
+//                Thread.sleep(3000);
+            }
+//            return "success";
             return "发送结果：code:{"+map.get("code")+"},message:{"+map.get("message")+"}";
 
         } catch (Exception e) {

@@ -27,7 +27,7 @@ public class Listener {
 //    @KafkaListener(topicPartitions={@TopicPartition(partitions={"0","1"},topic="topicTest3434")})
     //partitionOffsets={@PartitionOffset(partition ="0",initialOffset="0",relativeToCurrent="true")},
 //    @KafkaListener(topicPartitions={@TopicPartition(partitions={"0","1"},topic="tt12")})
-    @KafkaListener(topics = {"replicated-topic"})
+    @KafkaListener(topics = {"mytest"})
     public void listen(ConsumerRecord<?, ?> record){
         logger.info("============消息者==================");
         logger.info(record.toString());
